@@ -1,0 +1,155 @@
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948684455",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Checking repo status\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cd /home/yash/Desktop/Workspace/Practise/copilot && git --no-pager status && echo \\\"---\\\" && git --no-pager log --oneline -5\", \"description\": \"Get git status and recent commits\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948727400",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Viewing log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "view",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948770540",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Viewing log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "view",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948812819",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Clarifying user intent\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "ask_user",
+  "toolArgs": "{\"question\": \"What would you like to do with `log-prompt.sh`?\", \"choices\": [\"Edit/extend it\",\"Test it\",\"Review it for issues\"]}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Testing log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cd /home/yash/Desktop/Workspace/Practise/copilot && echo '{\\\"timestamp\\\":\\\"1743412694107\\\",\\\"cwd\\\":\\\"/home/yash/Desktop/Workspace/Practise/copilot\\\"}' | bash .github/hooks/scripts/log-prompt.sh && echo \\\"Exit code: $?\\\" && cat .github/hooks/logs/audit.jsonl\", \"description\": \"Test log-prompt.sh with sample input\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948923095",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Checking repo status\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cd /home/yash/Desktop/Workspace/Practise/copilot && git --no-pager status && echo \\\"---\\\" && git --no-pager log --oneline -5\", \"description\": \"Get git status and recent commits\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774948975443",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Viewing log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "view",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\"}"
+}
+{
+  "event": "userPromptSubmitted",
+  "timestampMs": "1774949025808",
+  "cwd": "/home/yash/Desktop/Workspace/Practise/copilot"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Clarifying edit request\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "ask_user",
+  "toolArgs": "{\"question\": \"What changes would you like to make to `log-prompt.sh`?\", \"choices\": [\"Also log the prompt text\",\"Add a hostname field to the log entry\",\"Change the log file location\",\"Add error handling/fallbacks\"]}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "report_intent",
+  "toolArgs": "{\"intent\": \"Editing log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "edit",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\", \"old_str\": \"TIMESTAMP_MS=\\\"$(echo \\\"$INPUT\\\" | jq -r '.timestamp // empty')\\\"\\nCWD=\\\"$(echo \\\"$INPUT\\\" | jq -r '.cwd // empty')\\\"\\n\\n# This example logs only metadata, not the full prompt, to avoid storing\\n# potentially sensitive data. Adjust to match your organization's needs.\\nLOG_DIR=\\\".github/hooks/logs\\\"\\nmkdir -p \\\"$LOG_DIR\\\"\\nchmod 700 \\\"$LOG_DIR\\\"\\n\\njq -n \\\\\\n  --arg ts \\\"$TIMESTAMP_MS\\\" \\\\\\n  --arg cwd \\\"$CWD\\\" \\\\\\n  '{event:\\\"userPromptSubmitted\\\", timestampMs:$ts, cwd:$cwd}' \\\\\\n  >> \\\"$LOG_DIR/audit.jsonl\\\"\", \"new_str\": \"TIMESTAMP_MS=\\\"$(echo \\\"$INPUT\\\" | jq -r '.timestamp // empty')\\\"\\nCWD=\\\"$(echo \\\"$INPUT\\\" | jq -r '.cwd // empty')\\\"\\nPROMPT=\\\"$(echo \\\"$INPUT\\\" | jq -r '.prompt // empty')\\\"\\n\\nLOG_DIR=\\\".github/hooks/logs\\\"\\nmkdir -p \\\"$LOG_DIR\\\"\\nchmod 700 \\\"$LOG_DIR\\\"\\n\\njq -n \\\\\\n  --arg ts \\\"$TIMESTAMP_MS\\\" \\\\\\n  --arg cwd \\\"$CWD\\\" \\\\\\n  --arg prompt \\\"$PROMPT\\\" \\\\\\n  '{event:\\\"userPromptSubmitted\\\", timestampMs:$ts, cwd:$cwd, prompt:$prompt}' \\\\\\n  >> \\\"$LOG_DIR/audit.jsonl\\\"\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "view",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "edit",
+  "toolArgs": "{\"path\": \"/home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh\", \"old_str\": \"TIMESTAMP_MS=\\\"$(echo \\\"$INPUT\\\" | jq -r '.timestamp // empty')\\\"\\nCWD=\\\"$(echo \\\"$INPUT\\\" | jq -r '.cwd // empty')\\\"\\n\\n# This example logs only metadata, not the full prompt, to avoid storing\\n# potentially sensitive data. Adjust to match your organization's needs.\\nLOG_DIR=\\\".github/hooks/logs\\\"\\nmkdir -p \\\"$LOG_DIR\\\"\\nchmod 700 \\\"$LOG_DIR\\\"\\n\\njq -n \\\\\\n  --arg ts \\\"$TIMESTAMP_MS\\\" \\\\\\n  --arg cwd \\\"$CWD\\\" \\\\\\n  '{event:\\\"userPromptSubmitted\\\", timestampMs:$ts, cwd:$cwd}' \\\\\\n  >> \\\"$LOG_DIR/audit.jsonl\\\"\", \"new_str\": \"TIMESTAMP_MS=\\\"$(echo \\\"$INPUT\\\" | jq -r '.timestamp // empty')\\\"\\nCWD=\\\"$(echo \\\"$INPUT\\\" | jq -r '.cwd // empty')\\\"\\nPROMPT=\\\"$(echo \\\"$INPUT\\\" | jq -r '.prompt // empty')\\\"\\n\\nLOG_DIR=\\\".github/hooks/logs\\\"\\nmkdir -p \\\"$LOG_DIR\\\"\\nchmod 700 \\\"$LOG_DIR\\\"\\n\\njq -n \\\\\\n  --arg ts \\\"$TIMESTAMP_MS\\\" \\\\\\n  --arg cwd \\\"$CWD\\\" \\\\\\n  --arg prompt \\\"$PROMPT\\\" \\\\\\n  '{event:\\\"userPromptSubmitted\\\", timestampMs:$ts, cwd:$cwd, prompt:$prompt}' \\\\\\n  >> \\\"$LOG_DIR/audit.jsonl\\\"\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cat -A /home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/scripts/log-prompt.sh | head -20\", \"description\": \"Check file encoding/line endings\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cd /home/yash/Desktop/Workspace/Practise/copilot && cat > .github/hooks/scripts/log-prompt.sh << 'EOF'\\n#!/bin/bash\\nset -euo pipefail\\n\\nINPUT=\\\"$(cat)\\\"\\n\\nTIMESTAMP_MS=\\\"$(echo \\\"$INPUT\\\" | jq -r '.timestamp // empty')\\\"\\nCWD=\\\"$(echo \\\"$INPUT\\\" | jq -r '.cwd // empty')\\\"\\nPROMPT=\\\"$(echo \\\"$INPUT\\\" | jq -r '.prompt // empty')\\\"\\n\\nLOG_DIR=\\\".github/hooks/logs\\\"\\nmkdir -p \\\"$LOG_DIR\\\"\\nchmod 700 \\\"$LOG_DIR\\\"\\n\\njq -n \\\\\\n  --arg ts \\\"$TIMESTAMP_MS\\\" \\\\\\n  --arg cwd \\\"$CWD\\\" \\\\\\n  --arg prompt \\\"$PROMPT\\\" \\\\\\n  '{event:\\\"userPromptSubmitted\\\", timestampMs:$ts, cwd:$cwd, prompt:$prompt}' \\\\\\n  >> \\\"$LOG_DIR/audit.jsonl\\\"\\n\\nexit 0\\nEOF\", \"description\": \"Rewrite log-prompt.sh with prompt logging added\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"cd /home/yash/Desktop/Workspace/Practise/copilot && echo '{\\\"timestamp\\\":\\\"1743412800000\\\",\\\"cwd\\\":\\\"/home/yash/Desktop/Workspace/Practise/copilot\\\",\\\"prompt\\\":\\\"Show me the status of this repository\\\"}' | bash .github/hooks/scripts/log-prompt.sh && tail -1 .github/hooks/logs/audit.jsonl\", \"description\": \"Test updated script with prompt field\"}"
+}
+{
+  "event": "preToolUse",
+  "toolName": "bash",
+  "toolArgs": "{\"command\": \"tail -3 /home/yash/Desktop/Workspace/Practise/copilot/.github/hooks/logs/audit.jsonl\", \"description\": \"Show last log entry\"}"
+}
