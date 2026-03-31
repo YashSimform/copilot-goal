@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "name": "log-tool-usage",
+        "run": "echo \"[$(date)] Tool used: $TOOL_NAME with input: $TOOL_INPUT\" >> .github/hooks/tool-usage.log"
+      }
+    ],
+    "sessionStart": [
+      {
+        "name": "log-session-start",
+        "run": "echo \"[$(date)] New Copilot session started\" >> .github/hooks/session.log"
+      }
+    ]
+  }
+}
