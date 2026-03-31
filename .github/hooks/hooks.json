@@ -30,8 +30,32 @@
     }
   }
     ],
-    "preToolUse": [...],
-    "postToolUse": [...],
-    "errorOccurred": [...]
+    "preToolUse": [
+            {
+    "type": "command",
+    "bash": "echo \"Tool about to be used: $TOOL_NAME\" >> logs/tools.log",
+    "powershell": "Add-Content -Path logs/tools.log -Value \"Tool about to be used: $env:TOOL_NAME\"",
+    "cwd": ".",
+    "timeoutSec": 10
+  }
+    ],
+    "postToolUse": [
+            {
+    "type": "command",
+    "bash": "echo \"Tool used: $TOOL_NAME\" >> logs/tools.log",
+    "powershell": "Add-Content -Path logs/tools.log -Value \"Tool used: $env:TOOL_NAME\"",
+    "cwd": ".",
+    "timeoutSec": 10
+  }
+    ],
+    "errorOccurred" : [
+          {
+    "type": "command",
+    "bash": "echo \"Error occurred: $ERROR_MESSAGE\" >> logs/errors.log",
+    "powershell": "Add-Content -Path logs/errors.log -Value \"Error occurred: $env:ERROR_MESSAGE\"",
+    "cwd": ".",
+    "timeoutSec": 10
+  }
+    ]
   }
 }
